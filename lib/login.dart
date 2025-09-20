@@ -56,6 +56,21 @@ class Log extends StatelessWidget {
                           ),
                         ),
                       ),
+                      TextFormField(
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                        // textDirection:TextDirecton.rtl,
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.email),
+                          hintText: "Enter Email",
+                          labelText: "Email",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                      ),
+                    
 
 
                     ],
