@@ -70,7 +70,19 @@ class Log extends StatelessWidget {
                           ),
                         ),
                       ),
-                    
+                      TextFormField(
+
+                        // textDirection:TextDirecton.rtl,
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.password),
+                          hintText: "enter password",
+                          labelText: " password",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                      ),
+
 
 
                     ],
