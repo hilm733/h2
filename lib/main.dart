@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'dark_light.dart';
 import 'login.dart';
+import 'dark_light.dart';
+
 void main() {
-  runApp(A());
+  runApp(
+    ChangeNotifierProvider(create: (context) => ThemeNotifier(), child: A()),
+  );
 }
+
 class A extends StatelessWidget {
   const A({super.key});
   @override
   Widget build(BuildContext context) {
-
     final themeNotifier = Provider.of<ThemeNotifier>(context);
 
     return MaterialApp(
@@ -32,9 +35,7 @@ class A extends StatelessWidget {
         // ... أضف المزيد من الألوان والتنسيقات للوضع الليلي
       ),
 
-
-      home:Log() ,
-      // --------------
+      home: Log(),
     );
   }
 }

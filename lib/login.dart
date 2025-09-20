@@ -1,17 +1,22 @@
-
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
+import 'main.dart';
+import 'dark_light.dart';
+
 class Log extends StatelessWidget {
 
   Log({super.key});
   @override
   Widget build(BuildContext context) {
-
+    final themeNotifier = Provider.of<ThemeNotifier>(context, listen: false);
+    final cur = Theme.of(context);
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-
+        backgroundColor: cur.scaffoldBackgroundColor,
         appBar: AppBar(
-
+          backgroundColor: cur.scaffoldBackgroundColor,
+          // leading: Center(child: IconButton(onPressed: onPressed, icon: icon)),
           centerTitle: true,
           title: Text(
             "login",
@@ -20,6 +25,7 @@ class Log extends StatelessWidget {
           actions: [
             IconButton(
               onPressed: () {
+                themeNotifier.toggleTheme();
               },
               icon: Icon(Icons.nightlight_round),
             ),
@@ -60,6 +66,7 @@ class Log extends StatelessWidget {
                         child: Icon(
                           Icons.person_outline,
                           size: 100,
+                          color: Color(0xFFEF4444),
                         ),
                       ),
                       TextFormField(
@@ -67,7 +74,6 @@ class Log extends StatelessWidget {
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
-
                         // textDirection:TextDirecton.rtl,
                         decoration: InputDecoration(
                           floatingLabelAlignment: FloatingLabelAlignment.center,
@@ -128,7 +134,6 @@ class Log extends StatelessWidget {
                           Expanded(
                             child: ElevatedButton(
                               onPressed: () {
-
                               },
                               child: Text(
                                 "up",
