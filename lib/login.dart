@@ -5,10 +5,13 @@ class Log extends StatelessWidget {
   Log({super.key});
   @override
   Widget build(BuildContext context) {
+
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+
         appBar: AppBar(
+
           centerTitle: true,
           title: Text(
             "login",
@@ -24,6 +27,13 @@ class Log extends StatelessWidget {
         ),
         // drawer:DDrawer(context),
         body: Container(
+          decoration: BoxDecoration(
+            gradient: RadialGradient(
+              center: Alignment.center,
+              radius: 0.7,
+              colors: [Colors.blueAccent.shade400, Colors.blue.shade200],
+            ),
+          ),
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Center(
@@ -44,6 +54,7 @@ class Log extends StatelessWidget {
                         ),
                       ),
                       TextFormField(
+
                         // textDirection:TextDirecton.rtl,
                         decoration: InputDecoration(
                           floatingLabelAlignment: FloatingLabelAlignment.center,
@@ -57,9 +68,7 @@ class Log extends StatelessWidget {
                         ),
                       ),
                       TextFormField(
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
+
                         // textDirection:TextDirecton.rtl,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.email),
