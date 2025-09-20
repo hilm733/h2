@@ -82,9 +82,24 @@ class Log extends StatelessWidget {
                           ),
                         ),
                       ),
-
-
-
+                      Row(
+                        spacing: 10,
+                        children: [
+                          Expanded(
+                            child: ElevatedButton(
+                              child: Text(
+                                "login",
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              onPressed: () {},
+                            ),
+                          ),
+                          
+                        ],
+                      ),
                     ],
                   ),
                 ),
