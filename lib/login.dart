@@ -63,6 +63,10 @@ class Log extends StatelessWidget {
                         ),
                       ),
                       TextFormField(
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
 
                         // textDirection:TextDirecton.rtl,
                         decoration: InputDecoration(
@@ -77,7 +81,10 @@ class Log extends StatelessWidget {
                         ),
                       ),
                       TextFormField(
-
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
                         // textDirection:TextDirecton.rtl,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.email),
@@ -89,7 +96,10 @@ class Log extends StatelessWidget {
                         ),
                       ),
                       TextFormField(
-
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
                         // textDirection:TextDirecton.rtl,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.password),
