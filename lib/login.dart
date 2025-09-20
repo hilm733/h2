@@ -97,7 +97,20 @@ class Log extends StatelessWidget {
                               onPressed: () {},
                             ),
                           ),
-                          
+                          Expanded(
+                            child: ElevatedButton(
+                              onPressed: () {
+
+                              },
+                              child: Text(
+                                "up",
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ],
