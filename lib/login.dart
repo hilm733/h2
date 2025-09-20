@@ -38,7 +38,16 @@ class Log extends StatelessWidget {
             padding: const EdgeInsets.all(20.0),
             child: Center(
               child: Container(
-
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Colors.blue.shade800, Colors.teal.shade200],
+                  ),
+                  // color: Colors.black,
+                  border: Border.all(color: Colors.indigoAccent, width: 3),
+                  borderRadius: BorderRadius.circular(40),
+                ),
                 child: SingleChildScrollView(
                   padding: EdgeInsets.all(20),
                   child: Column(
