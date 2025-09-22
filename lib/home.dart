@@ -74,3 +74,65 @@ class home extends StatelessWidget {
     );
   }
 }
+class CourseCard extends StatelessWidget {
+  final Course course;
+  const CourseCard({Key? key, required this.course}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    final cu = Theme.of(context);
+
+    return Card(
+      color: cu.scaffoldBackgroundColor,
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+      // elevation: 5,
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          children: [
+            Container(
+              width: 70,
+              height: 70,
+              decoration: BoxDecoration(
+                // color: course.primaryColor,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              padding: const EdgeInsets.all(8),
+              child: Image.asset(
+                // استخدام Image.asset
+                course.assetImagePath,
+              ),
+            ),
+            SizedBox(width: 15),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    course.title,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    // maxLines: 60,
+                    // overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: 5),
+                  Text(course.instructor, style: const TextStyle(fontSize: 20)),
+                  const SizedBox(height: 5),
+                  Text(course.duration, style: const TextStyle(fontSize: 15)),
+                ],
+              ),
+            ),
+            const Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.white54,
+              size: 18,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
