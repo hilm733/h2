@@ -66,10 +66,32 @@ class home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Home"),
-        centerTitle: true,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          // backgroundColor: Colors.white,
+          title: Text("home"),
+        ),
+        body: Container(
+          ///
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ListView.builder(
+              itemCount: courses.length,
+              itemBuilder: (context, index) {
+                final course = courses[index];
+                return GestureDetector(
+                  onTap: () {
+
+                  },
+                  child: CourseCard(course: course),
+                );
+              },
+            ),
+          ),
+        ),
       ),
     );
   }
