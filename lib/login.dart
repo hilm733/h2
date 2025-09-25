@@ -137,10 +137,7 @@ class Log extends StatelessWidget {
                           Expanded(
                             child: ElevatedButton(
                               onPressed: () {
-<<<<<<< HEAD
 
-=======
->>>>>>> format
                               },
                               child: Text(
                                 "up",
