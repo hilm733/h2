@@ -36,6 +36,9 @@ class drawerr extends StatelessWidget {
               title: Text("settings"),
               onTap: () {},
             ),
+            AboutListTile(
+              
+            ),
 
 
           ],
