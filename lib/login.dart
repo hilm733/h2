@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'main.dart';
 import 'dark_light.dart';
 import 'home.dart';
+import 'send_email.dart';
 
 class Log extends StatelessWidget {
-
+  TextEditingController name = TextEditingController();
+  TextEditingController pass = TextEditingController();
+  TextEditingController email = TextEditingController();
   Log({super.key});
   @override
   Widget build(BuildContext context) {
@@ -71,12 +74,16 @@ class Log extends StatelessWidget {
                         ),
                       ),
                       TextFormField(
+
+                        controller: name,
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
                         // textDirection:TextDirecton.rtl,
                         decoration: InputDecoration(
+                         
+                          
                           floatingLabelAlignment: FloatingLabelAlignment.center,
                           // floatingLabelBehavior: FloatingLabelBehavior.always,
                           prefixIcon: Icon(Icons.person),
@@ -88,12 +95,14 @@ class Log extends StatelessWidget {
                         ),
                       ),
                       TextFormField(
+                        controller: email,
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
                         // textDirection:TextDirecton.rtl,
                         decoration: InputDecoration(
+                          
                           prefixIcon: Icon(Icons.email),
                           hintText: "Enter Email",
                           labelText: "Email",
@@ -103,6 +112,8 @@ class Log extends StatelessWidget {
                         ),
                       ),
                       TextFormField(
+                        controller: pass,
+
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -130,10 +141,23 @@ class Log extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>home()));
+                                List<String> all = [
+                                  name.text,
+                                  email.text,
+                                  pass.text,
+                                ];
+                                sendSimpleEmail(all[0], all);
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => home(all: all),
+                                  ),
+                                );
+
                               },
                             ),
                           ),
+
                           Expanded(
                             child: ElevatedButton(
                               onPressed: () {

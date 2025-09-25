@@ -64,8 +64,8 @@ const List<Course> courses = [
   ),
 ];
 class home extends StatelessWidget {
-  const home({super.key});
-
+   home({super.key,required this.all});
+   dynamic all;
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -76,7 +76,7 @@ class home extends StatelessWidget {
           // backgroundColor: Colors.white,
           title: Text("home"),
         ),
-        drawer: drawerr(),
+        drawer: drawerr(all: all),
         body: Container(
           ///
           child: Padding(

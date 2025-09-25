@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'dark_light.dart';
 class drawerr extends StatelessWidget {
-  drawerr({super.key});
+  drawerr({super.key,required this.all});
+  dynamic all;
   @override
   Widget build(BuildContext context) {
     final themeNotifier = Provider.of<ThemeNotifier>(context, listen: false);
@@ -23,8 +24,8 @@ class drawerr extends StatelessWidget {
               children: [
                 UserAccountsDrawerHeader(
                   decoration: BoxDecoration(color: cur.scaffoldBackgroundColor),
-                  accountName: Text("name", style: TextStyle(fontSize: 18)),
-                  accountEmail: Text("email", style: TextStyle(fontSize: 15)),
+                  accountName: Text(all[0].toString(), style: TextStyle(fontSize: 18)),
+                  accountEmail: Text(all[1].toString(), style: TextStyle(fontSize: 15)),
                   currentAccountPicture: CircleAvatar(
                     child: Icon(Icons.person, size: 50),
                   ),
@@ -48,7 +49,7 @@ class drawerr extends StatelessWidget {
               onTap: () {},
             ),
             AboutListTile(
-              
+
             ),
 
 
