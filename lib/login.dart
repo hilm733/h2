@@ -2,6 +2,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'main.dart';
 import 'dark_light.dart';
+import 'home.dart';
 
 class Log extends StatelessWidget {
 
@@ -128,13 +129,18 @@ class Log extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>home()));
+                              },
                             ),
                           ),
                           Expanded(
                             child: ElevatedButton(
                               onPressed: () {
+<<<<<<< HEAD
 
+=======
+>>>>>>> format
                               },
                               child: Text(
                                 "up",
@@ -145,6 +151,7 @@ class Log extends StatelessWidget {
                               ),
                             ),
                           ),
+
                         ],
                       ),
                     ],
