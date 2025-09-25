@@ -31,6 +31,12 @@ class drawerr extends StatelessWidget {
               title: Text("note"),
               onTap: () {},
             ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text("settings"),
+              onTap: () {},
+            ),
+
 
           ],
         ),
