@@ -13,7 +13,7 @@ class infor_Course extends StatelessWidget {
         appBar: AppBar(
           leading: IconButton(
             icon: const Icon(Icons.arrow_back_ios,),
-            onPressed: () {},
+            onPressed: () => Navigator.of(context).pop(),
           ),
         ),
         body:Container(
@@ -96,7 +96,13 @@ class infor_Course extends StatelessWidget {
                     const SizedBox(height: 30),
                     ElevatedButton(
                       onPressed: () {
-                      },
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('بدء دورة ${course.title}!'),
+                            backgroundColor: Colors.green,
+                          ),
+                        );
+                        },
                       child:Text('ابدأ الدورة'),
                     ),
                   ],
