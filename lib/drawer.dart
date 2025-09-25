@@ -49,6 +49,18 @@ class drawerr extends StatelessWidget {
               onTap: () {},
             ),
             AboutListTile(
+    child: Text("Abute"),
+    icon: Icon(Icons.info_outline),
+    applicationIcon: Image.asset(
+    "PHOTO/icon.jpg",
+    width: 60,
+    height: 60,
+    ),
+    applicationName: "CORSESS_App",
+    applicationVersion: "0.0.1",
+    applicationLegalese: "2025 my company ©",
+    aboutBoxChildren: [Text("اعد هذا المشروع كجز من متطلب لمادة "
+        "تطوير تطبيقات الهاتف النقال....")],
 
             ),
 
@@ -59,3 +71,4 @@ class drawerr extends StatelessWidget {
     );
   }
 }
+
