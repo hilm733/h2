@@ -1,8 +1,10 @@
 import 'package:corce_app/send_email.dart';
+import 'Settings_App.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'dark_light.dart';
 import 'login.dart';
+import 'send_email.dart';
 class drawerr extends StatelessWidget {
   drawerr({super.key,required this.all});
   dynamic all;
@@ -48,12 +50,22 @@ class drawerr extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.output),
               title: Text("note"),
-              onTap: () {},
+              onTap: () {
+                _showMessagingDialog(context, all);
+
+              },
             ),
             ListTile(
               leading: Icon(Icons.settings),
               title: Text("settings"),
-              onTap: () {},
+              onTap: () {
+                // Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => settings()),
+                );
+
+              },
             ),
             AboutListTile(
               child: Text("Abute"),
