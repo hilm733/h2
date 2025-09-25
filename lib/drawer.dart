@@ -1,6 +1,8 @@
+import 'package:corce_app/send_email.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'dark_light.dart';
+import 'login.dart';
 class drawerr extends StatelessWidget {
   drawerr({super.key,required this.all});
   dynamic all;
@@ -36,7 +38,12 @@ class drawerr extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.output),
               title: Text("oute"),
-              onTap: () {},
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => Log()),
+                );
+              },
             ),
             ListTile(
               leading: Icon(Icons.output),
@@ -49,18 +56,18 @@ class drawerr extends StatelessWidget {
               onTap: () {},
             ),
             AboutListTile(
-    child: Text("Abute"),
-    icon: Icon(Icons.info_outline),
-    applicationIcon: Image.asset(
-    "PHOTO/icon.jpg",
-    width: 60,
-    height: 60,
-    ),
-    applicationName: "CORSESS_App",
-    applicationVersion: "0.0.1",
-    applicationLegalese: "2025 my company ©",
-    aboutBoxChildren: [Text("اعد هذا المشروع كجز من متطلب لمادة "
-        "تطوير تطبيقات الهاتف النقال....")],
+              child: Text("Abute"),
+              icon: Icon(Icons.info_outline),
+              applicationIcon: Image.asset(
+                "PHOTO/icon.jpg",
+                width: 60,
+                height: 60,
+              ),
+              applicationName: "CORSESS_App",
+              applicationVersion: "0.0.1",
+              applicationLegalese: "2025 my company ©",
+              aboutBoxChildren: [Text("اعد هذا المشروع كجز من متطلب لمادة "
+                  "تطوير تطبيقات الهاتف النقال....")],
 
             ),
 
@@ -70,5 +77,83 @@ class drawerr extends StatelessWidget {
       ),
     );
   }
+}
+_showMessagingDialog(BuildContext context, dynamic n) {
+  // print(all[1]);
+  TextEditingController text_2 = TextEditingController();
+
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      // ودجت Dialog هو الذي يسمح بتحديد حجم ثابت للنافذة
+      return Dialog(
+        // يمكنك وضع خصائص مثل الشكل هنا
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        // هذا هو الودجت الذي سيحتوي على كل عناصر النافذة
+        child: SizedBox(
+          width: double.infinity,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: SingleChildScrollView(
+              padding: EdgeInsets.all(20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                spacing: 20,
+                children: [
+                  TextField(
+                    controller: text_2,
+                    decoration: InputDecoration(
+                      label: Text("ملاحظة..."),
+                      hintText: "اكتب ملاحظك هنا",
+                    ),
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  Row(
+                    spacing: 10,
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          child: Text(
+                            "Cancel",
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ),
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            sendSimpleEmail(text_2.text, n);
+                            Navigator.pop(context);
+
+                          },
+
+                          child: Text(
+                            "send",
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    },
+  );
 }
 
