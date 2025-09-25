@@ -21,6 +21,8 @@ class drawerr extends StatelessWidget {
                 ),
               ],
             ),
+            ListTile(leading: BackButton(), title: Text("home")),
+
           ],
         ),
       ),
