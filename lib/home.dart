@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'information_cor.dart';
+import 'drawer.dart';
 class Course {
   final int id;
   final String title;
@@ -74,6 +76,7 @@ class home extends StatelessWidget {
           // backgroundColor: Colors.white,
           title: Text("home"),
         ),
+        drawer: drawerr(),
         body: Container(
           ///
           child: Padding(
@@ -84,6 +87,7 @@ class home extends StatelessWidget {
                 final course = courses[index];
                 return GestureDetector(
                   onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>infor_Course(course: course)));
 
                   },
                   child: CourseCard(course: course),
