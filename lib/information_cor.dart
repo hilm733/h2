@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
+import 'dark_light.dart';
+import 'package:provider/provider.dart';
 class infor_Course extends StatelessWidget {
   final Course course;
   const infor_Course({super.key, required this.course});
   @override
   Widget build(BuildContext context) {
+    final cu = Theme.of(context);
     return Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
@@ -14,7 +17,13 @@ class infor_Course extends StatelessWidget {
           ),
         ),
         body:Container(
-
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.blue.shade300, Colors.blue.shade500],
+            ),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -22,6 +31,8 @@ class infor_Course extends StatelessWidget {
                 children: [
                   // الصورة
                   Container(
+                    color:cu.scaffoldBackgroundColor,
+
                     height: 300,
                     child: Center(
                       child: Image.asset(
@@ -61,10 +72,12 @@ class infor_Course extends StatelessWidget {
 
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10),
+                color: cu.scaffoldBackgroundColor,
                 child: Column(
-
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Divider(height: 15,color: Colors.white,),
+
                     const Text(
                       'نبذة عن الدورة:',
                       style: TextStyle(
@@ -84,7 +97,7 @@ class infor_Course extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () {
                       },
-                      child: const Text('ابدأ الدورة'),
+                      child:Text('ابدأ الدورة'),
                     ),
                   ],
                 ),
