@@ -7,7 +7,6 @@ class drawerr extends StatelessWidget {
     return Drawer(
       width: 200,
       child: Container(
-
         child: Column(
           children: [
             Stack(
@@ -22,13 +21,14 @@ class drawerr extends StatelessWidget {
               ],
             ),
             ListTile(leading: BackButton(), title: Text("home")),
-
+            ListTile(
+              leading: Icon(Icons.output),
+              title: Text("oute"),
+              onTap: () {},
+            ),
           ],
         ),
       ),
-
-
     );
   }
 }
-
