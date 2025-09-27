@@ -4,13 +4,29 @@ import 'main.dart';
 import 'dark_light.dart';
 import 'home.dart';
 
-class Log extends StatelessWidget {
+import 'send_email.dart';
+
+
+class Log extends StatefulWidget {
 
   Log({super.key});
+
+  @override
+  State<Log> createState() => _LogState();
+}
+
+class _LogState extends State<Log> {
+  TextEditingController name = TextEditingController();
+
+  TextEditingController pass = TextEditingController();
+
+  TextEditingController email = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final themeNotifier = Provider.of<ThemeNotifier>(context, listen: false);
     final cur = Theme.of(context);
+    bool _a=false;
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
@@ -71,6 +87,8 @@ class Log extends StatelessWidget {
                         ),
                       ),
                       TextFormField(
+keyboardType: TextInputType.name,
+                        controller: name,
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -88,12 +106,15 @@ class Log extends StatelessWidget {
                         ),
                       ),
                       TextFormField(
+                        keyboardType: TextInputType.emailAddress,
+                        controller: email,
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
                         // textDirection:TextDirecton.rtl,
                         decoration: InputDecoration(
+
                           prefixIcon: Icon(Icons.email),
                           hintText: "Enter Email",
                           labelText: "Email",
@@ -103,6 +124,8 @@ class Log extends StatelessWidget {
                         ),
                       ),
                       TextFormField(
+                        keyboardType: TextInputType.emailAddress,
+                        controller: pass,
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -129,15 +152,48 @@ class Log extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
+
+
+                              onPressed: _a? null: () async {
+                                setState((){
+                                  _a=true;
+                                });
+                                List<String> all = [
+                                  name.text,
+                                  email.text,
+                                  pass.text,
+                                ];
+                                final String? A_se = await sendSimpleEmail(all[0], all);
+                                setState(() {
+                                  _a=false;
+                                });
+                                    if(A_se==null){
+                                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("ok"),backgroundColor:Colors.green,));
+                                }
+                                    else{
+                                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("error>>>${A_se}"),backgroundColor:Colors.green,));
+
+                                    }
+                                if(A_se==null){
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => home(all: all),
+                                    ),
+                                  );
+                                }
+
+
                               onPressed: () {
                                 Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>home()));
+
                               },
                             ),
                           ),
+
                           Expanded(
                             child: ElevatedButton(
                               onPressed: () {
-
                               },
                               child: Text(
                                 "up",
@@ -148,6 +204,7 @@ class Log extends StatelessWidget {
                               ),
                             ),
                           ),
+
                         ],
                       ),
                     ],
