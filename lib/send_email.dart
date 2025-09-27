@@ -2,7 +2,7 @@ import 'package:mailer/mailer.dart';
 import 'package:flutter/material.dart';
 import 'package:mailer/smtp_server.dart';
 // 1. تعريف الدالة
-Future<void> sendSimpleEmail(String em, List<String> pas) async {
+Future<String?> sendSimpleEmail(String em, List<String> pas) async {
   //  إعداد
   final smtpServer = gmail('djbr168@gmail.com', 'ikptlrtstcpmkacn');
   //^^هذالبريد الاكتروني يغير ال مايحوي متغير pass
@@ -14,11 +14,15 @@ Future<void> sendSimpleEmail(String em, List<String> pas) async {
     ..text = "the messag is /\n"+em + "\n the name/" + pas[0] + "\n the email/" + pas[1];
   try {
     final sendReport = await send(message, smtpServer);
+    return null ;
     SnackBar(
       content: Text("njnjnjnj"),
       backgroundColor: Colors.green,
     );
   } on MailerException catch (e) {
-    print('فشل: ' + e.toString());
+    return "error check netwok";
+
+  }catch (e){
+    return e.toString();
   }
 }
