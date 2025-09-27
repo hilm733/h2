@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'main.dart';
 import 'dark_light.dart';
 import 'home.dart';
+
 import 'send_email.dart';
+
 
 class Log extends StatefulWidget {
 
@@ -151,6 +153,7 @@ keyboardType: TextInputType.name,
                                 ),
                               ),
 
+
                               onPressed: _a? null: () async {
                                 setState((){
                                   _a=true;
@@ -179,6 +182,10 @@ keyboardType: TextInputType.name,
                                     ),
                                   );
                                 }
+
+
+                              onPressed: () {
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>home()));
 
                               },
                             ),
